@@ -7,32 +7,32 @@
                     <h1 class = "text-center">Cadastro</h1>
                     <div class = "form-group">
                         <label for = "nome">Nome</label>
-                        <input class = "form-control" type = "text" name = "nome"
+                        <input [(ngModel)]='user.nome' class = "form-control" type = "text" name = "nome"
                          placeholder = "Digite seu usuário">
                     </div>
                     <div class = "form-group">
                         <label for = "usuario">Usuário</label>
-                        <input class = "form-control" type = "text" name = "usuario"
+                        <input [(ngModel)]='user.usuario'class = "form-control" type = "text" name = "usuario"
                          placeholder = "Digite seu usuário">
                     </div>
                     <div class = "form-group">
                         <label for = "foto">Foto</label>
-                        <input class = "form-control" type = "text" name = "foto"
+                        <input [(ngModel)]='user.imagem'class = "form-control" type = "text" name = "foto"
                          placeholder = "Link da foto">
                     </div>
                     <div class = "form-group">
                         <label for = "senha">Senha</label>
-                        <input class = "form-control" type = "password" name = "senha"
+                        <input [(ngModel)]='user.senha' class = "form-control" type = "password" name = "senha"
                          placeholder = "Digite sua senha">
                     </div>
                     <div class = "form-group">
                         <label for = "confirmarsenha">Confirmar senha</label>
-                        <input class = "form-control" type = "password" name = "confirmarsenha"
+                        <input (input) = 'confirmSenha($event)'class = "form-control" type = "password" name = "confirmarsenha"
                          placeholder = "Confirme sua senha">
                     </div>
                     <div class = "form-group">
                         <label for = "tipo">Tipo de Usuario</label>
-                        <select class = "form-control" name = "tipo" id = "tipo">
+                        <select class = "form-control" name = "tipo" id = "tipo" (change) = 'tipoUser($event)'>
                             <option>Selecione um tipo de usuário: </option>
                             <option value = "normal">Normal</option>
                             <option value = "adm">Administrador </option>
@@ -42,7 +42,7 @@
 
                     <div class = "d-flex justify-content-center ">
                         <button type = "submit" routerLink = "/entrar" class = "btn btn-danger">Cancelar</button>
-                        <button type = "submit" class = "btn btn-success ml-3">Cadastrar</button>
+                        <button (click) = 'cadastrar()'type = "submit" class = "btn btn-success ml-3">Cadastrar</button>
                     </div>
                     
                 </div>
