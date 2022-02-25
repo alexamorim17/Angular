@@ -18,7 +18,6 @@ export class CadastrarComponent implements OnInit {
     private router:Router
   ) { }
 
-  //quando a página iniciar realiza ações
   ngOnInit(){
     window.scroll(0,0) 
   }
