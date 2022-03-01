@@ -1,15 +1,15 @@
 <div class = "container-fluid"><!--container-->
-    <div class = "row d-flex align-items-center"><!--Deixa os elementos alinhados-->
+    <div class = "row d-flex align-items-center "><!--Deixa os elementos alinhados-->
 
        
 
         <div class = "col-md-6"> <!--Responsável pelo formulario de cadastro-->
         
-            <div class = "row d-flex justify-content-center align-items-center">
+            <div class = "row d-flex justify-content-center  ">
                 <div class = "col-md-6">
                     <h1 class = "text-center mb-3">Entrar</h1>
 
-                    <div class ="formulario  mb-5">
+                    <div class ="formulario mb-5">
                         
                             <div class = "formulario-grupo">
                                 <label class = "usuario">Usuário</label>
@@ -20,21 +20,23 @@
                                 <input [(ngModel)] = 'UserLogin.senha'class = "form-control"type = "password" name = "senha-form" id = "senha">
                             </div>
                     </div>
-                    <div class = " d-flex justify-content-center">
+                    <div class = "d-flex justify-content-center">
                         <button (click)= 'entrar()'type = "submit"class ="btn btn-success">Logar</button>
                     </div> 
                     <hr>
                     <p>Não tem conta? <a routerLink = '/cadastrar'>Cadastre-se</a></p> 
                 </div>
             </div>
+            
         </div><!--fim do formulario de cadastro-->
-
-        <hr>
+        <div class = "col-md-6" id = "img-bg"></div><!--Responsável pelo background-->
+        
+        
        
 
         
-        <div class = "col-md-6" id = "img-bg"></div><!--Responsável pelo background-->
+       
     </div>
-    
+   
 </div><!--fim container-->
 
