@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class MenuComponent implements OnInit {
 
+  id = environment.id
   nome = environment.nome
   imagem = environment.imagem
   token = environment.token
@@ -23,6 +24,7 @@ export class MenuComponent implements OnInit {
     this.router.navigate(['/entrar'])
     environment.token = ''
     environment.imagem = ''
+    environment.nome = ''
     environment.id = 0
   }
 

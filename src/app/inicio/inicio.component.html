@@ -46,17 +46,45 @@
 
 		</div>
 	</nav>
-	<div class="tab-content" id="nav-tabContent">
+	<div class="tab-content mt-5" id="nav-tabContent">
 		<div class="tab-pane fade show active" id="todasPostagens" role="tabpanel"
-			aria-labelledby="nav-todasPostagens-tab">Todas as postagens</div>
+			aria-labelledby="nav-todasPostagens-tab">
+			<div class="card-columns">
+				<div class="card text-center " *ngFor = 'let contador of listaPostagem'>
+					<div class="card-body">
+					  <h5 class="card-title mb-0">{{contador.titulo}}</h5>
+					  <small class = "text-muted ">Tema: {{contador.tema.descricao}}</small>
+					  <p class="card-text mb-3">{{contador.texto}}</p>
+					  <p class="card-text"><small class="text-muted">
+						  {{contador.data| date: 'dd//MM/yyyy'}}às {{contador.data| date :'HH:mm'}}</small></p>
+					  <p class = "card-text"><small class = "text-muted">by:{{contador.usuario.nome}}</small></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-		<div class="tab-pane fade" id="minhasPostagens" role="tabpanel" aria-labelledby="nav-minhasPostagens-tab">Minhas
-			Postagens</div>
+		<div class="tab-pane fade" id="minhasPostagens" role="tabpanel" aria-labelledby="nav-minhasPostagens-tab">
+			<div class="tab-content mt-5" id="nav-tabContent">
+				<div class="tab-pane fade show active" id="todasPostagens" role="tabpanel"
+					aria-labelledby="nav-todasPostagens-tab">
+					<div class="card-columns">
+						<div class="card text-center " *ngFor = 'let contador of user.postagem'>
+							<div class="card-body">
+							  <h5 class="card-title mb-0">{{contador.titulo}}</h5>
+							  <small class = "text-muted ">Tema: {{contador.tema.descricao}}</small>
+							  <p class="card-text mb-3">{{contador.texto}}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
 
 		<div class="tab-pane fade" id="postagemPorTema" role="tabpanel" aria-labelledby="nav-postagemPorTema-tab">
-			Postagens Por tema</div>
-	</div>
+			</div>
 </div>
+
 
 <div class="modal fade" id="novaPostagem" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
 	aria-hidden="true">
@@ -73,19 +101,19 @@
 
 					<div class="form-group">
 						<label for="titulo">Titulo</label>
-						<input type="text" class="form-control" id="titulo" placeholder="Titulo">
+						<input [(ngModel)] = 'postagem.titulo'type="text" class="form-control" id="titulo" placeholder="Titulo">
 					</div>
 
 					<div class="form-group">
 						<label for="texto">Texto</label>
-						<textarea class="form-control" id="texto" name="texto" row="3"
+						<textarea [(ngModel)] = 'postagem.texto' class="form-control" id="texto" name="texto" row="3"
 							placeholder="Digite sua Postagem"></textarea>
 					</div>
 
 					<div class="form-group">
 						<label for="texto">Escolha um Tema ou <a data-dismiss = "modal" routerLink = "/tema">cadastre um novo </a></label>
-						<select name="tema" id="tema" class="form-control">
-							<option value="">Temas</option>
+						<select name="tema" id="tema" class="form-control" [(ngModel)] = 'idTema' (change) = 'findByIdTema()'>
+							<option *ngFor ='let item of listaTemas'value="{{item.id}}">{{item.descricao}}</option>
 						</select>
 					</div>
 
@@ -93,7 +121,7 @@
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-				<button type="button" class="btn btn-success">Publicar</button>
+				<button type="button" class="btn btn-success"(click) = 'publicar()'>Publicar</button>
 			</div>
 		</div>
 	</div>
