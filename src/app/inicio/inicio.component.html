@@ -36,8 +36,8 @@
 				aria-selected="true">Todas as
 				Postagens</a>
 
-			<a class="nav-item nav-link text-secondary font-weight-bold" id="nav-minhasPostagens-tab" data-toggle="tab"
-				href="#minhasPostagens" role="tab" aria-controls="nav-minhasPostagens" aria-selected="false">Minhas
+			<a (click) = 'findByIdUser()'class="nav-item nav-link text-secondary font-weight-bold" id="nav-minhasPostagens-tab" data-toggle="tab"
+				href="#minhasPostagens" role="tab"  aria-controls="nav-minhasPostagens" aria-selected="false">Minhas
 				Postagens</a>
 
 			<a class="nav-postagemPorTema nav-link text-secondary font-weight-bold" id="nav-postagemPorTema-tab"
@@ -47,6 +47,7 @@
 		</div>
 	</nav>
 	<div class="tab-content mt-5" id="nav-tabContent">
+
 		<div class="tab-pane fade show active" id="todasPostagens" role="tabpanel"
 			aria-labelledby="nav-todasPostagens-tab">
 			<div class="card-columns">
@@ -62,42 +63,38 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	
 
 		<div class="tab-pane fade" id="minhasPostagens" role="tabpanel" aria-labelledby="nav-minhasPostagens-tab">
-			<div class="tab-content mt-5" id="nav-tabContent">
-				<div class="tab-pane fade show active" id="todasPostagens" role="tabpanel"
-					aria-labelledby="nav-todasPostagens-tab">
 					<div class="card-columns">
 						<div class="card text-center " *ngFor = 'let contador of user.postagem'>
 							<div class="card-body">
 							  <h5 class="card-title mb-0">{{contador.titulo}}</h5>
 							  <small class = "text-muted ">Tema: {{contador.tema.descricao}}</small>
 							  <p class="card-text mb-3">{{contador.texto}}</p>
+							  <a [routerLink] = "['/postagem-edit',contador.id]"href = "" class = "text-info mr-3">Editar</a>
+							  <a [routerLink] = "['/postagem-delete',contador.id]"href = "" class = "text-danger">Apagar</a>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			</div>
-
-		<div class="tab-pane fade" id="postagemPorTema" role="tabpanel" aria-labelledby="nav-postagemPorTema-tab">
-			<div class="tab-content mt-5" id="nav-tabContent">
-				<div class="tab-pane fade show active" id="todasPostagens" role="tabpanel"
-					aria-labelledby="nav-todasPostagens-tab">
-					<div class="card-columns " *ngFor = 'let tema of listaTemas'>
-						<div class="card text-center " *ngFor = 'let contador of tema.postagem'>
-							<div class="card-body">
-							  <h5 class="card-title mb-0">{{contador.titulo}}</h5>
-							  <p class="card-text mb-3">{{contador.texto}}</p>
-							  <p class = "card-text"><small class = "text-muted">by:{{contador.usuario.nome}}</small></p>
-							</div>
-						</div>
+		
+		
+		<div class="tab-pane fade show active" id="PostagensPorTema" role="tabpanel"aria-labelledby="nav-postagemPorTema-tab">
+			<div class="card-columns " *ngFor = 'let tema of listaTemas'>
+				<div class="card text-center " *ngFor = 'let contador of tema.postagem'>
+					<div class="card-body">
+							<h5 class="card-title mb-0">{{contador.titulo}}</h5>
+							<p class="card-text mb-3">{{contador.texto}}</p>
+							<p class = "card-text"><small class = "text-muted">by:{{contador.usuario.nome}}</small></p>
 					</div>
 				</div>
-			</div>	
+			</div>
 		</div>
-</div>
+	
+	</div>
+	
+
 
 
 <div class="modal fade" id="novaPostagem" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
