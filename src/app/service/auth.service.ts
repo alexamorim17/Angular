@@ -27,6 +27,10 @@ export class AuthService {
 
   }
 
+  atualizar(user:Usuario):Observable<Usuario>{
+      return this.http.put<Usuario>('http://localhost:8080/usuarios/atualizar',user)
+  }
+
   getByIdUser(id:number):Observable<Usuario>{
     return this.http.get<Usuario>(`http://localhost:8080/usuarios/${id}`)
   }

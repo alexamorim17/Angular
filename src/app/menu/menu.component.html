@@ -14,7 +14,9 @@
           <p class = "fs mt-3 pl-2 text-white font-weight-bold">{{nome}}</p>
          
         <li class="nav-item active pl-2 mt-2">
-          <a class="nav-link" href="#"><i class="fa fa-pencil-square-o fs" aria-hidden="true"></i></a>
+          <a [routerLink] = "['/user-edit',id]">
+            <p class="text-white fs-16 m-0" href="#"><i class="fa fa-pencil-square-o fs" aria-hidden="true"></i></p>
+          </a>
         </li>
         
       </ul>

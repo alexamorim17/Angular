@@ -30,7 +30,9 @@ export class InicioComponent implements OnInit {
     private authService:AuthService) { }
 
   ngOnInit(){
+    window.scroll(0,0)
     if(environment.token == ''){
+      
       alert('Sua seção expirou,faça o login novamente')
       this.router.navigate(['/entrar'])
       

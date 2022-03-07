@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 
 @Component({
@@ -14,10 +14,14 @@ export class MenuComponent implements OnInit {
   imagem = environment.imagem
   token = environment.token
   constructor(
-    private router:Router
+    private router:Router,
+    private route: ActivatedRoute,
+    
+    
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit(){
+    
   }
 
   sair(){
