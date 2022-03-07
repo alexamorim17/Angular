@@ -25,13 +25,13 @@ export class EntrarComponent implements OnInit {
     this.auth.entrar(this.UserLogin).subscribe((resp:UsuarioLogin)=>{
       this.UserLogin = resp
       environment.token = this.UserLogin.token
-      environment.imagem = this.UserLogin.imagem
+      environment.foto = this.UserLogin.foto
       environment.id = this.UserLogin.id
       environment.nome = this.UserLogin.nome
 
       console.log(environment.token)
       console.log(environment.nome)
-      console.log(environment.imagem)
+      console.log(environment.foto)
       console.log(environment.id)
       this.router.navigate(['/inicio'])
     },erro =>{

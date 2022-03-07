@@ -59,7 +59,7 @@ export class UserEditComponent implements OnInit {
           )
           environment.token = ''
           environment.nome = ''
-          environment.imagem = ''
+          environment.foto = ''
           environment.id = 0
           this.router.navigate(['/login'])
 

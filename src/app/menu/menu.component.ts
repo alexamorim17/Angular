@@ -11,7 +11,7 @@ export class MenuComponent implements OnInit {
 
   id = environment.id
   nome = environment.nome
-  imagem = environment.imagem
+  foto = environment.foto
   token = environment.token
   constructor(
     private router:Router,
@@ -27,7 +27,7 @@ export class MenuComponent implements OnInit {
   sair(){
     this.router.navigate(['/entrar'])
     environment.token = ''
-    environment.imagem = ''
+    environment.foto = ''
     environment.nome = ''
     environment.id = 0
   }
